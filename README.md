@@ -26,4 +26,6 @@
 - Then have the ablity to view a report of the results after all rounds have been completed, so that we can evaluate which products were the most popular.
   - create a property attached to the constructor function itself that keeps tract of all the products that are currently being considered.
   - After voting rounds have been completed, remove the event listeners on the product.
-  - Display the list of all the products followed by the votes recieved and number of times seen for each. ex. ``banana slicer had 3 votes and was shown 5 times``         
+  - Display the list of all the products followed by the votes recieved and number of times seen for each. ex. ``banana slicer had 3 votes and was shown 5 times`` 
+
+  ## J/S and HTML was assisted by Ryan Gallaway, and Henry Funk.        
