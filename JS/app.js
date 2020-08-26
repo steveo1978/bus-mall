@@ -1,6 +1,6 @@
 'use strict';
 
-
+var section = document.getElementById('results');
 var imgElOne = document.getElementById('image-one');
 var imgElTwo = document.getElementById('image-two');
 var imgElThree = document.getElementById('image-three');
@@ -97,6 +97,11 @@ function eventHandler(e) {
     imgElTwo.removeEventListener('click', eventHandler);
     imgElThree.removeEventListener('click', eventHandler);
 
+    for (i = 0; i < imgArray.length; i++) {
+      var imageClickedAmount = document.createElement('p');
+      imageClickedAmount.textContent = `${imgArray[i].name}, clicked ${imgArray[i].clicked} times, viewed ${imgArray[i].viewed} times.`;
+      section.append(imageClickedAmount);
+    }
   }
 }
 
