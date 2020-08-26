@@ -1,10 +1,14 @@
-
+* {
+  box-sizing: border-box;
+  text-align: center;
+}
 
 body {
-   background-image: url("./imgs/Bus-stop.jpg");
-   background-size: 860px;
-   width: fit-content;
+   background: url("../imgs/Bus-stop.jpg") no-repeat center center fixed;
+   background-size: cover;
+   text-align: center;
 }
+
 title {
   font-weight: bold;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -13,25 +17,17 @@ title {
   padding: 10px;
 }
 
-
-#image-one {
-  width: 300px;
-  height: 300px;
-  padding: 10px;
-  margin-left: 100px;
+#images {
+  width: 960px;
+  /* padding: 10px;  */
+  display: inline-block;
+  margin-top: 600px;
 }
 
-#image-two {
-  width: 300px;
-  height: 300px;
-  padding: 10px;
-  margin-left: 100px;
+#images > img {
+width: 300px;
+height: 300px;
+padding: 5px 10px;
 }
 
-#image-three {
-  width: 300px;
-  height: 300px;
-  padding: 10px;
-  margin-left: 100px;
-}
 
