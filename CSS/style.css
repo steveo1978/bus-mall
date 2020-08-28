@@ -7,10 +7,11 @@ body {
   background: url("../imgs/Bus-stop.jpg") no-repeat center center fixed;
   background-size: cover;
   text-align: center;
-  font-size: 80px;
+  font-size: 30px;
   font-weight: bolder;
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin: 40px;
+  color: blue;
 }
 
 h2 {
@@ -24,7 +25,6 @@ h3 {
   padding-top: 40px;
 }
 
-
 #images {
   width: 960px;
   display: inline-block;
@@ -34,15 +34,27 @@ h3 {
 #images > img {
 width: 300px;
 height: 300px;
-padding: 5px 10px;
+padding: 10px;
 }
 
-p {
-  font-size: 40px;
+canvas {
+  width: 1000px;
+  height: 600px;
+  padding: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  font-size: large;
+  border-block-end: 50px;
+}
+
+section {
+  padding-top: 30px;
+  padding-bottom: 150px;
 }
 
 footer {
   font-size: 40px;
+  color: blue;
 }
 
 
