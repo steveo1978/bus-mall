@@ -1,13 +1,12 @@
 'use strict';
 
-var myChart = document.getElementById('chart');
 var section = document.getElementById('results');
 var imgElOne = document.getElementById('image-one');
 var imgElTwo = document.getElementById('image-two');
 var imgElThree = document.getElementById('image-three');
 
 
-var clicksAllowed = 25;
+var clicksAllowed = 5;
 var numberOfClicks = [];
 var renderArray = [];
 var imgArray = [];
@@ -58,7 +57,7 @@ function createRenderArray() {
     while (renderArray.includes(i)) {
       i = randomNumber(imgArray.length);
     }
-    renderArray.push(i);
+    renderArray.unshift(i);
   }
   // console.log(renderArray);
 }
@@ -99,6 +98,7 @@ function eventHandler(e) {
     imgElOne.removeEventListener('click', eventHandler);
     imgElTwo.removeEventListener('click', eventHandler);
     imgElThree.removeEventListener('click', eventHandler);
+    myChart();
 
     for (i = 0; i < imgArray.length; i++) {
       var imageClickedAmount = document.createElement('p');
@@ -114,15 +114,75 @@ imgElThree.addEventListener('click', eventHandler);
 
 
 function myChart() {
-
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, { //eslint-disable-line
+  var clickedImgArray = [];
+  var imgViewedArray = [];
+  var namedImgsArray = [];
+  for (var i = 0; i < imgArray.length; i++) {
+    clickedImgArray.push(imgArray[i].clicked);
+    imgViewedArray.push(imgArray[i].viewed);
+    namedImgsArray.push(imgArray[i].name);
+  }
+  var chartObject = {
     type: 'bar',
     data: {
-      labels: ['imgArray'],
+      labels: namedImgsArray,
       datasets: [{
-        label: 'numberOfClicks',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Total Clicked',
+        data: clickedImgArray,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+
+
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+
+
+        ],
+        borderWidth: 1
+      }, {
+        label: 'Total Viewed',
+        data: imgViewedArray,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -137,12 +197,13 @@ function myChart() {
           'rgba(255, 206, 86, 1)',
           'rgba(75, 192, 192, 1)',
           'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
+          'rgba(255, 159, 64, 1)',
         ],
         borderWidth: 1
       }]
     },
     options: {
+      responsive: false,
       scales: {
         yAxes: [{
           ticks: {
@@ -151,5 +212,7 @@ function myChart() {
         }]
       }
     }
-  });
+  };
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, chartObject);//eslint-disable-line
 }
