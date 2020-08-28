@@ -28,4 +28,4 @@
   - After voting rounds have been completed, remove the event listeners on the product.
   - Display the list of all the products followed by the votes recieved and number of times seen for each. ex. ``banana slicer had 3 votes and was shown 5 times`` 
 
-  ## J/S and HTML was assisted by Ryan Gallaway, and Henry Funk.        
+  ## J/S and HTML was assisted by Ryan Gallaway, Henry Funk and Scott Falbo.       
